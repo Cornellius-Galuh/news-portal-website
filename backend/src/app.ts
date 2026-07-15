@@ -8,12 +8,29 @@ import { sendSuccess } from './utils/api-response';
 import swaggerSpec from './config/swagger';
 import swaggerUi from 'swagger-ui-express';
 import healthRoute from './routes/health.route';
+import authRoute from './routes/auth.route';
+import userRoute from './routes/user.route';
+import authorRequestRoute from './routes/author-request.route';
+import categoryRoute from './routes/category.route';
+import path from 'path';
+import cors from 'cors';
 
 const app = express();
+
+// CORS middleware
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  }),
+);
 
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Static file serving for uploads
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -25,6 +42,10 @@ app.get('/', (_req: Request, res: Response) => {
 
 // API routes
 app.use('/api/v1', healthRoute);
+app.use('/api/v1', authRoute);
+app.use('/api/v1', authorRequestRoute);
+app.use('/api/v1', userRoute);
+app.use('/api/v1', categoryRoute);
 
 // 404 handler (must be after all routes)
 app.use(notFound);
