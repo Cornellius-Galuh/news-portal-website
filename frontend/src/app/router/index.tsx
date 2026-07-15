@@ -14,6 +14,9 @@ import ProfileLayout from '../../pages/profile/profile-layout';
 import ProfilePage from '../../pages/profile/profile-page';
 import ProfileSettingsPage from '../../pages/profile/profile-settings-page';
 import BecomeAuthorPage from '../../pages/author-request/become-author-page';
+import CategoriesPage from '../../pages/categories/categories-page';
+import CategoryDetailPage from '../../pages/categories/category-detail-page';
+import AdminCategoriesPage from '../../pages/admin/categories/admin-categories-page';
 
 // Re-export guards for convenient application usage
 export { GuestRoute, ProtectedRoute, RoleGuard, AuthorRoute, AdminRoute };
@@ -57,7 +60,11 @@ const router = createBrowserRouter([
   // Public pages
   {
     element: <MainLayout />,
-    children: [{ path: '/', element: <HomePage /> }],
+    children: [
+      { path: '/', element: <HomePage /> },
+      { path: '/categories', element: <CategoriesPage /> },
+      { path: '/categories/:slug', element: <CategoryDetailPage /> },
+    ],
   },
 
   // Guest-only pages (redirect to home if logged in)
@@ -106,7 +113,10 @@ const router = createBrowserRouter([
         children: [
           {
             element: <DashboardLayout />,
-            children: [{ path: '/admin', element: <AdminDashboard /> }],
+            children: [
+              { path: '/admin', element: <AdminDashboard /> },
+              { path: '/admin/categories', element: <AdminCategoriesPage /> },
+            ],
           },
         ],
       },
