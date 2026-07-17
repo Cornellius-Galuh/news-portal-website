@@ -1,5 +1,6 @@
 interface SpinnerProps {
   size?: 'sm' | 'md' | 'lg';
+  className?: string;
 }
 
 const sizeStyles = {
@@ -8,10 +9,10 @@ const sizeStyles = {
   lg: 'h-12 w-12',
 };
 
-const Spinner = ({ size = 'md' }: SpinnerProps) => {
+const Spinner = ({ size = 'md', className = '' }: SpinnerProps) => {
   return (
     <svg
-      className={`animate-spin text-indigo-600 ${sizeStyles[size]}`}
+      className={`animate-spin text-indigo-600 ${sizeStyles[size]} ${className}`}
       fill="none"
       viewBox="0 0 24 24"
     >

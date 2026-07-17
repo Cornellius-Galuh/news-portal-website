@@ -46,4 +46,25 @@ const authMiddleware = async (req: Request, _res: Response, next: NextFunction):
   }
 };
 
+export const optionalAuthMiddleware = async (
+  req: Request,
+  _res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      const token = authHeader.split(' ')[1];
+      const decoded = jwt.verify(token, env.JWT_SECRET) as JwtPayload;
+      const user = await User.findById(decoded.id);
+      if (user) {
+        req.user = user;
+      }
+    }
+  } catch {
+    // Ignore token errors for optional auth (treat as anonymous)
+  }
+  next();
+};
+
 export default authMiddleware;

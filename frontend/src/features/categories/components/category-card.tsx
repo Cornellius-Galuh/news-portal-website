@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { FolderOpen, ArrowUpRight, BookOpen } from 'lucide-react';
-import type { Category } from '../../types/category.types';
+import type { Category } from '../../../types/category.types';
 
 interface CategoryCardProps {
   category: Category;

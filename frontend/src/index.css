@@ -1,1 +1,133 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-serif: 'Ibarra Real Nova', Georgia, serif;
+  --font-sans: 'Inter', Helvetica, Arial, sans-serif;
+
+  --color-parchment: #E8E5DF;
+  --color-paper: #F2EFE9;
+  --color-ink: #353535;
+  --color-grenadier: #D74108;
+  --color-foggy: #CBC8B9;
+}
+
+@layer base {
+  body {
+    background-color: #E8E5DF;
+    color: #353535;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Newspaper custom border lines */
+.newspaper-border {
+  border-color: #353535;
+}
+
+/* Tiptap & Rich Text Editor explicit newspaper typography styling */
+.ProseMirror, .prose {
+  color: #353535;
+}
+
+.ProseMirror focus {
+  outline: none;
+}
+
+.ProseMirror h1, .prose h1 {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #353535;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.ProseMirror h2, .prose h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.4em;
+  margin-bottom: 0.4em;
+  color: #353535;
+  border-bottom: 1px solid #353535;
+  padding-bottom: 0.25em;
+}
+
+.ProseMirror h3, .prose h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 1.2em;
+  margin-bottom: 0.3em;
+  color: #353535;
+}
+
+.ProseMirror p, .prose p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  line-height: 1.75;
+}
+
+.ProseMirror ul, .prose ul {
+  list-style-type: disc;
+  padding-left: 1.75rem;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.ProseMirror ol, .prose ol {
+  list-style-type: decimal;
+  padding-left: 1.75rem;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.ProseMirror li, .prose li {
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+  line-height: 1.6;
+}
+
+.ProseMirror blockquote, .prose blockquote {
+  border-left: 4px solid #D74108;
+  background-color: rgba(232, 229, 223, 0.6);
+  padding: 1rem 1.25rem;
+  margin: 1.5em 0;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #353535;
+}
+
+.ProseMirror pre, .prose pre {
+  background-color: #353535;
+  color: #F2EFE9;
+  padding: 1rem;
+  border: 1px solid #353535;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin: 1.25em 0;
+  overflow-x: auto;
+}
+
+.ProseMirror code, .prose code {
+  background-color: rgba(53, 53, 53, 0.1);
+  padding: 0.2em 0.4em;
+  font-size: 0.875em;
+  font-family: monospace;
+}
+
+.ProseMirror img, .prose img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #353535;
+  margin: 1.5em auto;
+  display: block;
+  box-shadow: 2px 2px 0px rgba(53, 53, 53, 0.15);
+}

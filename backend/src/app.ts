@@ -12,6 +12,7 @@ import authRoute from './routes/auth.route';
 import userRoute from './routes/user.route';
 import authorRequestRoute from './routes/author-request.route';
 import categoryRoute from './routes/category.route';
+import articleRoute from './routes/article.route';
 import path from 'path';
 import cors from 'cors';
 
@@ -46,6 +47,7 @@ app.use('/api/v1', authRoute);
 app.use('/api/v1', authorRequestRoute);
 app.use('/api/v1', userRoute);
 app.use('/api/v1', categoryRoute);
+app.use('/api/v1', articleRoute);
 
 // 404 handler (must be after all routes)
 app.use(notFound);

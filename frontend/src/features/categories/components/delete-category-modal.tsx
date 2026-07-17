@@ -3,7 +3,7 @@ import { AlertTriangle, Trash2 } from 'lucide-react';
 import Modal from '../../../components/ui/modal';
 import Button from '../../../components/ui/button';
 import { categoryService } from '../services/category.service';
-import type { Category } from '../../types/category.types';
+import type { Category } from '../../../types/category.types';
 
 interface DeleteCategoryModalProps {
   isOpen: boolean;

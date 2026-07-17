@@ -7,7 +7,7 @@ import Input from '../../../components/ui/input';
 import Button from '../../../components/ui/button';
 import { categoryService } from '../services/category.service';
 import { categoryFormSchema, type CategoryFormData } from '../validators/category-form.validator';
-import type { Category } from '../../types/category.types';
+import type { Category } from '../../../types/category.types';
 
 interface CategoryFormModalProps {
   isOpen: boolean;

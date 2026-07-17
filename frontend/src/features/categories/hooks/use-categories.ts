@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import categoryService from '../services/category.service';
-import type { Category, CategoryPaginationMeta } from '../../types/category.types';
+import type { Category, CategoryPaginationMeta } from '../../../types/category.types';
 
 interface UseCategoriesOptions {
   initialLimit?: number;
